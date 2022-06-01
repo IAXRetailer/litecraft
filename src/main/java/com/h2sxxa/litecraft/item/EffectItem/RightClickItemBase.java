@@ -4,24 +4,42 @@ import com.h2sxxa.litecraft.item.ItemBase;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 
 public class RightClickItemBase extends ItemBase{
-
     PotionEffect effect;
     public RightClickItemBase(String name, CreativeTabs tab,PotionEffect effect) {
         super(name, tab);
         this.effect=effect;
     }
-    
-    @SubscribeEvent
-    public void onItemRightClick(World worldIn,EntityPlayer player){
+    //ck block
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+        if (!worldIn.isRemote)
+        {
+            player.addPotionEffect(new PotionEffect(effect.getPotion(), effect.getDuration(), effect.getAmplifier(), effect.getIsAmbient(), effect.doesShowParticles()));
+        }
+
+        return EnumActionResult.SUCCESS;
+    }
+    //Ck in air
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn)
+    {
+
         if (!worldIn.isRemote){
             player.addPotionEffect(new PotionEffect(effect.getPotion(), effect.getDuration(), effect.getAmplifier(), effect.getIsAmbient(), effect.doesShowParticles()));
         }
+
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
+
     }
     
 }

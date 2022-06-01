@@ -13,7 +13,7 @@ public class MainTab{
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem()
         {
-            return new ItemStack(ModItem.Card);
+            return new ItemStack(ModItem.CARD);
         }
     };
 }
