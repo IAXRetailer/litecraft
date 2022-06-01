@@ -1,5 +1,6 @@
 package com.h2sxxa.litecraft.item;
 
+import com.h2sxxa.litecraft.Main;
 import com.h2sxxa.litecraft.init.ModItem;
 import com.h2sxxa.litecraft.util.IHasModel;
 
@@ -19,7 +20,7 @@ public class ItemBase extends Item implements IHasModel{
     }
     @Override
     public void registerModels() {
-        
+        Main.proxy.registerModelsrender(this, 0, "inventory");
     }
     
 }
