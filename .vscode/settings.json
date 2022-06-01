@@ -1,0 +1,8 @@
+{
+    "gradle.reuseTerminals": "all",
+    "gradle.debug": false,
+    "gradle.disableConfirmations": true,
+    "gradle.javaDebug.cleanOutput": true,
+    "gradle.allowParallelRun": false,
+    "gradle.focusTaskInExplorer": true
+}
