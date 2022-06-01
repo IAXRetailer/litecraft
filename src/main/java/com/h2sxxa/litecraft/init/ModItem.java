@@ -17,5 +17,5 @@ public class ModItem {
     
     //public static final Item
     public static final Item Card = new ItemBase("card", MainTab.MainTab);
-    public static final Item BLUE_JADE = new RightClickItemBase("blue_jade", MainTab.MainTab, new PotionEffect(MobEffects.WATER_BREATHING,1000,2));
+    public static final Item BLUE_JADE = new RightClickItemBase("blue_jade", MainTab.MainTab, new PotionEffect(MobEffects.WATER_BREATHING,1000,2,true,true));
 }
