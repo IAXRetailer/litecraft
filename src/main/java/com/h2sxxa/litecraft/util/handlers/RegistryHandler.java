@@ -6,6 +6,8 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+//import org.apache.commons.logging.Log;
+//import org.apache.logging.log4j.Logger;
 import com.h2sxxa.litecraft.init.ModItem;
 import com.h2sxxa.litecraft.util.IHasModel;
 
@@ -14,6 +16,7 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void onItemRegister(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(ModItem.ITEMS.toArray(new Item[0]));
+        
     }
 
     @SubscribeEvent
