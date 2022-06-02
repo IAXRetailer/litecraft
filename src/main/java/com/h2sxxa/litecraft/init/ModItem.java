@@ -3,6 +3,7 @@ package com.h2sxxa.litecraft.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.common.collect.Lists;
 import com.h2sxxa.litecraft.cretivetab.MainTab;
 import com.h2sxxa.litecraft.item.ItemBase;
 import com.h2sxxa.litecraft.item.EffectItem.RightClickItemBase;
@@ -17,5 +18,6 @@ public class ModItem {
     
     //public static final Item
     public static final Item CARD = new ItemBase("card", MainTab.MainTab);
-    public static final Item BLUE_JADE = new RightClickItemBase("blue_jade", MainTab.MainTab, new PotionEffect(MobEffects.WATER_BREATHING,1200,2,true,true),200);
+    public static final Item BLUE_JADE = new RightClickItemBase("blue_jade", MainTab.MainTab,Lists.newArrayList("test1","test2"), new PotionEffect(MobEffects.WATER_BREATHING,1200,2,true,true),2400);
+    
 }
