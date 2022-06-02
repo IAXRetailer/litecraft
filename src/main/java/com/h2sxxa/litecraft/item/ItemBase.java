@@ -18,6 +18,7 @@ public class ItemBase extends Item implements IHasModel{
         
         ModItem.ITEMS.add(this);
     }
+    
     @Override
     public void registerModels() {
         Main.proxy.registerModelsrender(this, 0, "inventory");

@@ -1,5 +1,6 @@
 package com.h2sxxa.litecraft.item.EffectItem;
 
+import com.h2sxxa.litecraft.Main;
 import com.h2sxxa.litecraft.item.ItemBase;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -41,5 +42,4 @@ public class RightClickItemBase extends ItemBase{
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
 
     }
-    
 }

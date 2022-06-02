@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.potion.PotionEffect;
 
 public class ModItem {
-    public static final List<Item> ITEMS= new ArrayList<Item>();
+    public static final List<Item> ITEMS = new ArrayList<Item>();
 
     
     //public static final Item
