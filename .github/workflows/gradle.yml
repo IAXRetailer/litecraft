@@ -28,9 +28,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: litecraft
-        path: litecraft-*.jar
-    - name: Upload build
-      uses: actions/upload-artifact@v3
-      with:
-        name: modid
-        path: modid-*.jar
+        path: '**/litecraft-*.jar'
