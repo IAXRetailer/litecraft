@@ -1,6 +1,5 @@
 package com.h2sxxa.litecraft.item.EffectItem;
 
-import com.h2sxxa.litecraft.Main;
 import com.h2sxxa.litecraft.item.ItemBase;
 
 import net.minecraft.creativetab.CreativeTabs;
