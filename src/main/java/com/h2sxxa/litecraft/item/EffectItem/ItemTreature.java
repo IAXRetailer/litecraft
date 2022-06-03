@@ -3,12 +3,8 @@ package com.h2sxxa.litecraft.item.EffectItem;
 import java.util.List;
 import java.util.Random;
 
-import com.google.common.collect.Lists;
-import com.h2sxxa.litecraft.init.ModItem;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -20,10 +16,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemTreature extends OneUseItemBase{
-    Random r;
-    //List<Item> pool = Lists.newArrayList(ModItem.CARD,Items.APPLE);
+    Random rand;
+    List<Item> pool;
     public ItemTreature(String name, CreativeTabs tab, List<String> Information, PotionEffect effect, int cooldowntick,int Usetime,List<Item> pool) {
         super(name, tab, Information, effect, cooldowntick, Usetime);
+        this.pool=pool;
     }
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
@@ -31,9 +28,10 @@ public class ItemTreature extends OneUseItemBase{
         if (!player.world.isRemote)
         {
             player.getHeldItem(hand).shrink(Usetime);
-            //ItemStack itemStack = new ItemStack(pool.get(r.nextInt(pool.size())));
-            ItemStack itemStack = new ItemStack(ModItem.CARD);
-            player.addItemStackToInventory(itemStack);
+            //BUG System.out.println(pool.get(rand.nextInt(pool.size())));
+            //BUG Item itemelementItem = pool.get(rand.nextInt(pool.size()));
+            //ItemStack itemStack = new ItemStack(itemelementItem);
+            //player.addItemStackToInventory(itemStack);
         }
         return EnumActionResult.SUCCESS;
     }
@@ -44,8 +42,11 @@ public class ItemTreature extends OneUseItemBase{
 
         if (!player.world.isRemote){
             player.getHeldItem(handIn).shrink(Usetime);
-            ItemStack itemStack = new ItemStack(ModItem.CARD);
-            player.addItemStackToInventory(itemStack);
+            //System.out.println(pool.get(rand.nextInt(pool.size())));
+            System.out.println(pool);
+            //Item itemelementItem = pool.get(rand.nextInt(pool.size()));
+            //ItemStack itemStack = new ItemStack(itemelementItem);
+            //player.addItemStackToInventory(itemStack);
         }
 
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
