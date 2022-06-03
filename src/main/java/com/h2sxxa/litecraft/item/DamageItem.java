@@ -12,4 +12,9 @@ public class DamageItem extends InfoItemBase{
         super(name, tab,Information);
         setMaxDamage(maxDamageIn);
     }
+
+    @Override
+    public boolean isDamageable() {
+        return true;
+    }
 }

@@ -21,7 +21,7 @@ public class ModItem {
     
     public static final Item CARD = new ItemBase("card", MainTab.MainTab);
     public static final Item BLUE_JADE = new RightClickItemBase("blue_jade", MainTab.MainTab,Lists.newArrayList("test1","test2"), new PotionEffect(MobEffects.WATER_BREATHING,1200,2,true,true),2400);
-    public static final Item HEART = new Heart("heart",MainTab.MainTab,Lists.newArrayList("test1","test2"),null,20,1,2);
+    public static final Item HEART = new Heart("heart",MainTab.MainTab,Lists.newArrayList("test1","test2"),null,10,1,2);
     public static final Item HEART_BROKEN = new InfoItemBase("heart_broken",MainTab.MainTab,Lists.newArrayList("test1","test2"));
     public static final Feature PHOENIX_DOWN = new Feature("phoenix_down", MainTab.MainTab,3,Lists.newArrayList("test1","test2"));
 

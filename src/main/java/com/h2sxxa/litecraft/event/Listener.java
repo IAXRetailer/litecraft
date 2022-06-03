@@ -4,7 +4,9 @@ import com.h2sxxa.litecraft.init.ModItem;
 import com.h2sxxa.litecraft.util.Reference;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -18,12 +20,18 @@ public final class Listener {
         ItemStack itemStack = new ItemStack(ModItem.PHOENIX_DOWN);
         if (event.getEntity() instanceof EntityPlayer){
             EntityPlayer player = (EntityPlayer)event.getEntity();
-            if (event.isCancelable() && player.inventory.hasItemStack(itemStack)){
+            Boolean heldcheck=player.getHeldItemMainhand().getItem()==itemStack.getItem() || player.getHeldItemOffhand().getItem()==itemStack.getItem();
+            if (event.isCancelable() && heldcheck){
                 event.setCanceled(true);
                 player.setHealth(player.getMaxHealth());
-                itemStack.setItemDamage(itemStack.getItemDamage()-1);
+                if(player.getHeldItemMainhand().getItem()==itemStack.getItem()){
+                    player.getHeldItemMainhand().damageItem(1, player);
+                }
+                else{
+                    player.getHeldItemOffhand().damageItem(1, player);
+                }
+                //player.world.playSound(player,player.posX,player.posY,player.posZ, SoundEvents.BLOCK_ANVIL_HIT, SoundCategory.NEUTRAL, 1F, 1F);
+            }
         }
-    }
-
     }
 }
