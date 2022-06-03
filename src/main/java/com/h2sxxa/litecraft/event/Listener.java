@@ -1,5 +1,7 @@
 package com.h2sxxa.litecraft.event;
 
+import java.util.Random;
+
 import com.h2sxxa.litecraft.init.ModItem;
 import com.h2sxxa.litecraft.util.Reference;
 
@@ -20,7 +22,8 @@ public final class Listener {
         ItemStack itemStack = new ItemStack(ModItem.PHOENIX_DOWN);
         if (event.getEntity() instanceof EntityPlayer){
             EntityPlayer player = (EntityPlayer)event.getEntity();
-            Boolean heldcheck=player.getHeldItemMainhand().getItem()==itemStack.getItem() || player.getHeldItemOffhand().getItem()==itemStack.getItem();
+            Random r=new Random ();
+            Boolean heldcheck = player.getHeldItemMainhand().getItem()==itemStack.getItem() || player.getHeldItemOffhand().getItem()==itemStack.getItem();
             if (event.isCancelable() && heldcheck){
                 event.setCanceled(true);
                 player.setHealth(player.getMaxHealth());
@@ -30,7 +33,7 @@ public final class Listener {
                 else{
                     player.getHeldItemOffhand().damageItem(1, player);
                 }
-                //player.world.playSound(player,player.posX,player.posY,player.posZ, SoundEvents.BLOCK_ANVIL_HIT, SoundCategory.NEUTRAL, 1F, 1F);
+                player.world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.ENTITY_GHAST_SCREAM, SoundCategory.NEUTRAL, 0.5F, 0.4F / (r.nextFloat() * 0.4F + 0.8F));
             }
         }
     }

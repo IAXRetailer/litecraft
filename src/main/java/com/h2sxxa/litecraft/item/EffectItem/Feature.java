@@ -19,15 +19,4 @@ public class Feature extends DamageItem{
         super(name, tab, Information,maxDamageIn);
         setMaxStackSize(1);
     }
-
-
-    @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-        if (!player.world.isRemote)
-        {
-            player.getHeldItem(hand).damageItem(1, player);
-        }
-        return EnumActionResult.SUCCESS;
-    }
 }
