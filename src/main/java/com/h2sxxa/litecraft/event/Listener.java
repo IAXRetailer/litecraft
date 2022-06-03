@@ -33,7 +33,7 @@ public final class Listener {
                 else{
                     player.getHeldItemOffhand().damageItem(1, player);
                 }
-                player.world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.ENTITY_GHAST_SCREAM, SoundCategory.NEUTRAL, 0.5F, 0.4F / (r.nextFloat() * 0.4F + 0.8F));
+                player.world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.NEUTRAL, 0.5F, 0.4F / (r.nextFloat() * 0.4F + 0.8F));
             }
         }
     }
