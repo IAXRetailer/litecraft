@@ -21,6 +21,8 @@ public class ItemTreature extends OneUseItemBase{
     public ItemTreature(String name, CreativeTabs tab, List<String> Information, PotionEffect effect, int cooldowntick,int Usetime,List<Item> pool) {
         super(name, tab, Information, effect, cooldowntick, Usetime);
         this.pool=pool;
+        this.rand=new Random();
+        
     }
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
@@ -28,10 +30,9 @@ public class ItemTreature extends OneUseItemBase{
         if (!player.world.isRemote)
         {
             player.getHeldItem(hand).shrink(Usetime);
-            //BUG System.out.println(pool.get(rand.nextInt(pool.size())));
-            //BUG Item itemelementItem = pool.get(rand.nextInt(pool.size()));
-            //ItemStack itemStack = new ItemStack(itemelementItem);
-            //player.addItemStackToInventory(itemStack);
+            Item itemelementItem = pool.get(rand.nextInt(pool.size()));
+            ItemStack itemStack = new ItemStack(itemelementItem);
+            player.addItemStackToInventory(itemStack);
         }
         return EnumActionResult.SUCCESS;
     }
@@ -43,10 +44,9 @@ public class ItemTreature extends OneUseItemBase{
         if (!player.world.isRemote){
             player.getHeldItem(handIn).shrink(Usetime);
             //System.out.println(pool.get(rand.nextInt(pool.size())));
-            System.out.println(pool);
-            //Item itemelementItem = pool.get(rand.nextInt(pool.size()));
-            //ItemStack itemStack = new ItemStack(itemelementItem);
-            //player.addItemStackToInventory(itemStack);
+            Item itemelementItem = pool.get(rand.nextInt(pool.size()));
+            ItemStack itemStack = new ItemStack(itemelementItem);
+            player.addItemStackToInventory(itemStack);
         }
 
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
