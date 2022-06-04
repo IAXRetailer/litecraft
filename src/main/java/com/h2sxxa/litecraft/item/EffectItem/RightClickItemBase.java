@@ -1,6 +1,5 @@
 package com.h2sxxa.litecraft.item.EffectItem;
 
-import java.util.List;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,8 +18,8 @@ public class RightClickItemBase extends InfoItemBase{
     int cooldowntick;
     //EntityLivingBase entityLiving;
     //ItemChorusFruit
-    public RightClickItemBase(String name, CreativeTabs tab,List<String> Information,PotionEffect effect,int cooldowntick) {
-        super(name, tab,Information);
+    public RightClickItemBase(String name, CreativeTabs tab,PotionEffect effect,int cooldowntick) {
+        super(name, tab);
         this.effect=effect;
         this.cooldowntick=cooldowntick;
     }

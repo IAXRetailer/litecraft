@@ -1,7 +1,5 @@
 package com.h2sxxa.litecraft.item.EffectItem;
 
-import java.util.List;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -15,8 +13,8 @@ import net.minecraft.world.World;
 
 public class OneUseItemBase extends RightClickItemBase{
     int Usetime;
-    public OneUseItemBase(String name, CreativeTabs tab,List<String> Information,PotionEffect effect,int cooldowntick,int Usetime) {
-        super(name, tab, Information, effect, cooldowntick);
+    public OneUseItemBase(String name, CreativeTabs tab,PotionEffect effect,int cooldowntick,int Usetime) {
+        super(name, tab, effect, cooldowntick);
         this.Usetime=Usetime;
         
     }

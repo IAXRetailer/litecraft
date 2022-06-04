@@ -18,8 +18,8 @@ import net.minecraft.world.World;
 public class ItemTreature extends OneUseItemBase{
     Random rand;
     List<Item> pool;
-    public ItemTreature(String name, CreativeTabs tab, List<String> Information, PotionEffect effect, int cooldowntick,int Usetime,List<Item> pool) {
-        super(name, tab, Information, effect, cooldowntick, Usetime);
+    public ItemTreature(String name, CreativeTabs tab, PotionEffect effect, int cooldowntick,int Usetime,List<Item> pool) {
+        super(name, tab, effect, cooldowntick, Usetime);
         this.pool=pool;
         this.rand=new Random();
         
@@ -27,7 +27,7 @@ public class ItemTreature extends OneUseItemBase{
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        if (!player.world.isRemote)
+        if (!player.world.isRemote && player.inventory.hasItemStack(ItemStack.EMPTY))
         {
             player.getHeldItem(hand).shrink(Usetime);
             Item itemelementItem = pool.get(rand.nextInt(pool.size()));
@@ -41,7 +41,7 @@ public class ItemTreature extends OneUseItemBase{
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn)
     {
 
-        if (!player.world.isRemote){
+        if (!player.world.isRemote && player.inventory.hasItemStack(ItemStack.EMPTY)){
             player.getHeldItem(handIn).shrink(Usetime);
             //System.out.println(pool.get(rand.nextInt(pool.size())));
             Item itemelementItem = pool.get(rand.nextInt(pool.size()));

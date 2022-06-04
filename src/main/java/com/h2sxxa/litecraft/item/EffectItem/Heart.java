@@ -1,7 +1,5 @@
 package com.h2sxxa.litecraft.item.EffectItem;
 
-import java.util.List;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,8 +12,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 public class Heart extends OneUseItemBase{
     int healamo;
-    public Heart(String name, CreativeTabs tab, List<String> Information, PotionEffect effect, int cooldowntick,int Usetime,int healamo) {
-        super(name, tab, Information, effect, cooldowntick, Usetime);
+    public Heart(String name, CreativeTabs tab, PotionEffect effect, int cooldowntick,int Usetime,int healamo) {
+        super(name, tab, effect, cooldowntick, Usetime);
         this.healamo=healamo;
     }
     @Override

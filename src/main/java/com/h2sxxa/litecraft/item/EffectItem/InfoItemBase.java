@@ -4,24 +4,29 @@ import java.util.List;
 
 import com.h2sxxa.litecraft.item.ItemBase;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class InfoItemBase extends ItemBase{
-    List<String> Information;
-    public InfoItemBase(String name,CreativeTabs tab,List<String> Information){
+    String key;
+    //List<String> vaules;
+    Boolean HasCRLF;
+    public InfoItemBase(String name,CreativeTabs tab){
         super(name, tab);
-        this.Information=Information;
+        this.key=name.concat(".information.litecraft");
     }
 
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        for(String i : Information){
+        for (String i:I18n.format(key).split("/n")){
             tooltip.add(i);
         }
+        
+
     }
     
 }
