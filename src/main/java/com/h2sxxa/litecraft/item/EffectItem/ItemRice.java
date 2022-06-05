@@ -12,6 +12,7 @@ public class ItemRice extends InfoFoodBase{
     public ItemRice(String name, int amount, float saturation, boolean iswolfFood, CreativeTabs tab,PotionEffect effect,int cooldowntick) {
         super(name, amount, saturation, iswolfFood, tab);
         this.effect=effect;
+        setAlwaysEdible();
     }
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {

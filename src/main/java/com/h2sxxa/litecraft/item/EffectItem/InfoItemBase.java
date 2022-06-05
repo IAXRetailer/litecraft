@@ -25,5 +25,4 @@ public class InfoItemBase extends ItemBase{
             tooltip.add(i);
         }
     }
-    
 }

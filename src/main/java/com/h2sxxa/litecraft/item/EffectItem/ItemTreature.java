@@ -33,24 +33,18 @@ public class ItemTreature extends OneUseItemBase{
             ItemStack itemStack = new ItemStack(itemelementItem);
             player.addItemStackToInventory(itemStack);
         }
-        else{
-            System.out.println("None Empty");
-        }
         return EnumActionResult.SUCCESS;
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn)
     {
-
         if (player.inventory.hasItemStack(ItemStack.EMPTY)){
+            //player.world.
             player.getHeldItem(handIn).shrink(Usetime);
             Item itemelementItem = pool.get(rand.nextInt(pool.size()));
             ItemStack itemStack = new ItemStack(itemelementItem);
             player.addItemStackToInventory(itemStack);
-        }
-        else{
-            System.out.println("None Empty");
         }
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
 
