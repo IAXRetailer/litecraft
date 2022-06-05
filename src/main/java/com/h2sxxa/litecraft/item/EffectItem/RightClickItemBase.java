@@ -16,8 +16,6 @@ import net.minecraft.world.World;
 public class RightClickItemBase extends InfoItemBase{
     PotionEffect effect;
     int cooldowntick;
-    //EntityLivingBase entityLiving;
-    //ItemChorusFruit
     public RightClickItemBase(String name, CreativeTabs tab,PotionEffect effect,int cooldowntick) {
         super(name, tab);
         this.effect=effect;

@@ -22,17 +22,19 @@ public class ItemTreature extends OneUseItemBase{
         super(name, tab, effect, cooldowntick, Usetime);
         this.pool=pool;
         this.rand=new Random();
-        
     }
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        if (!player.world.isRemote && player.inventory.hasItemStack(ItemStack.EMPTY))
+        if (player.inventory.hasItemStack(ItemStack.EMPTY))
         {
             player.getHeldItem(hand).shrink(Usetime);
             Item itemelementItem = pool.get(rand.nextInt(pool.size()));
             ItemStack itemStack = new ItemStack(itemelementItem);
             player.addItemStackToInventory(itemStack);
+        }
+        else{
+            System.out.println("None Empty");
         }
         return EnumActionResult.SUCCESS;
     }
@@ -41,14 +43,15 @@ public class ItemTreature extends OneUseItemBase{
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn)
     {
 
-        if (!player.world.isRemote && player.inventory.hasItemStack(ItemStack.EMPTY)){
+        if (player.inventory.hasItemStack(ItemStack.EMPTY)){
             player.getHeldItem(handIn).shrink(Usetime);
-            //System.out.println(pool.get(rand.nextInt(pool.size())));
             Item itemelementItem = pool.get(rand.nextInt(pool.size()));
             ItemStack itemStack = new ItemStack(itemelementItem);
             player.addItemStackToInventory(itemStack);
         }
-
+        else{
+            System.out.println("None Empty");
+        }
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
 
     }
