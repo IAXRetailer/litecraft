@@ -3,6 +3,9 @@ package com.h2sxxa.litecraft.item.EffectItem;
 import java.util.List;
 import java.util.Random;
 
+import com.h2sxxa.litecraft.init.ModItem;
+import com.h2sxxa.litecraft.tool.ICheckInv;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -25,8 +28,8 @@ public class ItemTreature extends OneUseItemBase{
     }
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-        if (player.inventory.hasItemStack(ItemStack.EMPTY))
+    {   
+        if (ICheckInv.ICheckStack(player,ModItem.ATREASURE))
         {
             player.getHeldItem(hand).shrink(Usetime);
             Item itemelementItem = pool.get(rand.nextInt(pool.size()));
@@ -39,7 +42,7 @@ public class ItemTreature extends OneUseItemBase{
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn)
     {
-        if (player.inventory.hasItemStack(ItemStack.EMPTY)){
+        if (ICheckInv.ICheckStack(player,ModItem.ATREASURE)){
             //player.world.
             player.getHeldItem(handIn).shrink(Usetime);
             Item itemelementItem = pool.get(rand.nextInt(pool.size()));
