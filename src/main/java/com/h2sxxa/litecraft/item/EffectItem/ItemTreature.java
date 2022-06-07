@@ -41,13 +41,11 @@ public class ItemTreature extends OneUseItemBase{
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn)
     {
         if (ICheckInv.ICheckEMP(player)){
-            //player.world.
             player.getHeldItem(handIn).shrink(Usetime);
             Item itemelementItem = pool.get(rand.nextInt(pool.size()));
             ItemStack itemStack = new ItemStack(itemelementItem);
             player.addItemStackToInventory(itemStack);
         }
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(handIn));
-
     }
 }

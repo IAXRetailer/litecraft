@@ -31,4 +31,6 @@ public class ModItem {
     public static final Item PHOENIX_DOWN = new Feature("phoenix_down", MainTab.MainTab,3);
     public static final Item ATREASURE = new ItemTreature("atreasure", MainTab.MainTab, null, 10, 1, Lists.newArrayList(ModItem.CARD,Items.APPLE));
     public static final Item RICE = new ItemRice("rice", 1, 1, true, MainTab.MainTab, new PotionEffect(MobEffects.STRENGTH,1200,0,false,true), 10);
+    public static final Item BODY = new RightClickItemBase("body", MainTab.MainTab, new PotionEffect(MobEffects.ABSORPTION,1200,4,false,true), 3600);
+    public static final Item GHOST = new InfoItemBase("ghost", MainTab.MainTab);
 }
