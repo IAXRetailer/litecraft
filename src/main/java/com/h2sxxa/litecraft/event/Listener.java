@@ -3,12 +3,13 @@ package com.h2sxxa.litecraft.event;
 import java.util.Random;
 
 import com.h2sxxa.litecraft.init.ModItem;
-import com.h2sxxa.litecraft.tool.ICheckInv;
 import com.h2sxxa.litecraft.util.Reference;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -50,6 +51,9 @@ public final class Listener {
             if (player.inventory.hasItemStack(itemStack)&&vaule==0){
                 event.setCanceled(true);
                 player.world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.ENTITY_BLAZE_DEATH, SoundCategory.NEUTRAL, 0.5F, 0.4F / (r.nextFloat() * 0.4F + 0.8F));
+                player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS,30,0,false,true));
+                player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,30,2,false,true));
+                player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,30,2,false,true));
             }
         }
     }
