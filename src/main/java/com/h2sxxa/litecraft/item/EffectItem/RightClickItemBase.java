@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 
-public class RightClickItemBase extends InfoItemBase{
+public class RightClickItemBase extends InfoDescBase{
     PotionEffect effect;
     int cooldowntick;
     public RightClickItemBase(String name, CreativeTabs tab,PotionEffect effect,int cooldowntick) {

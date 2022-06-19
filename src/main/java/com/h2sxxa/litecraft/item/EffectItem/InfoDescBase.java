@@ -14,19 +14,16 @@ import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 public class InfoDescBase extends ItemBase{
     String key;
-    Boolean hashideInfomation;
-    //List<String> vaules;
-    public InfoDescBase(String name,CreativeTabs tab,Boolean hashideInfomation){
+    public InfoDescBase(String name,CreativeTabs tab){
         super(name, tab);
         this.key=name.concat(".information.litecraft");
-        this.hashideInfomation=hashideInfomation;
 
     }
 
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)&&hashideInfomation){
+        if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)&&!I18n.format(key.concat(".desc")).contains(".desc")){
             for (String i:I18n.format(key.concat(".desc")).split("/n")){
                 tooltip.add(i);
             }

@@ -2,6 +2,8 @@ package com.h2sxxa.litecraft.item.EffectItem;
 
 import java.util.List;
 
+import org.lwjgl.input.Keyboard;
+
 import com.h2sxxa.litecraft.Main;
 import com.h2sxxa.litecraft.init.ModItem;
 import com.h2sxxa.litecraft.util.IHasModel;
@@ -15,7 +17,6 @@ import net.minecraft.world.World;
 
 public class InfoFoodBase extends ItemFood implements IHasModel{
     String key;
-
     public InfoFoodBase(String name, int amount, float saturation, boolean iswolfFood,CreativeTabs tab){
         super(amount,saturation,iswolfFood);
         setCreativeTab(tab);
@@ -33,8 +34,14 @@ public class InfoFoodBase extends ItemFood implements IHasModel{
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        for (String i:I18n.format(key).split("/n")){
-            tooltip.add(i);
+        if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)&&I18n.format(key.concat(".desc.ctrl"))=="true"){
+            for (String i:I18n.format(key.concat(".desc")).split("/n")){
+                tooltip.add(i);
+            }
+        }else{
+            for (String i:I18n.format(key).split("/n")){
+                tooltip.add(i);
+            }
         }
     }
 }

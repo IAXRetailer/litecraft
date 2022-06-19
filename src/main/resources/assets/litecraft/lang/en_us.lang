@@ -4,7 +4,8 @@ itemGroup.CardTab=Cards
 
 
 #§
-blue_jade.information.litecraft=仅在剧情上起到提供氧气的效果，没啥好说的/n右键获得一分钟水下呼吸效果
+blue_jade.information.litecraft=仅在剧情上起到提供氧气的效果，没啥好说的
+blue_jade.information.litecraft.desc=右键获得一分钟水下呼吸效果
 phoenix_down.information.litecraft=test
 atreasure.information.litecraft=test
 heart.information.litecraft=test

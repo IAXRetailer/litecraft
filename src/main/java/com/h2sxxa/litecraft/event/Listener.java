@@ -10,6 +10,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -37,6 +38,7 @@ public final class Listener {
                     player.getHeldItemOffhand().damageItem(1, player);
                 }
                 player.world.playSound(null,player.posX,player.posY,player.posZ, SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.NEUTRAL, 0.5F, 0.4F / (r.nextFloat() * 0.4F + 0.8F));
+                player.world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, player.posX,player.posY,player.posZ, 1.0D, 0.0D, 0.0D);
             }
         }
     }
