@@ -42,7 +42,6 @@ public final class Listener {
             }
         }
     }
-
     @SubscribeEvent
     public static void onGetDamageGhost(LivingDamageEvent event) {
         ItemStack itemStack = new ItemStack(ModItem.GHOST);

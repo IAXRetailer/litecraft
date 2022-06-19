@@ -10,3 +10,6 @@ phoenix_down.information.litecraft=test
 atreasure.information.litecraft=test
 heart.information.litecraft=test
 heart_broken.information.litecraft=test
+
+rice.information.litecraft=shift
+rice.information.litecraft.desc=提供时长(tick)为<DUR>的<AMP>级力量
