@@ -59,8 +59,8 @@ dependencies {
     // except that these dependencies get remapped to your current MCP mappings
     //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
     //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    deobfCompile "curse.maven:mirror-291497:2788291"
-    deobfCompile "curse.maven:danmakucore-254028:2559187"
+    //deobfCompile "curse.maven:mirror-291497:2788291"
+    //deobfCompile "curse.maven:danmakucore-254028:2559187"
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html

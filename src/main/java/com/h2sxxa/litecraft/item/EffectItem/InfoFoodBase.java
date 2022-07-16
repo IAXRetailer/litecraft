@@ -16,16 +16,22 @@ public class InfoFoodBase extends FoodBase{
         super(name, amount,saturation,iswolfFood, tab);
         this.key=name.concat(".information.litecraft");
     }
+    
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)&&I18n.format(key.concat(".desc.ctrl"))=="true"){
-            for (String i:I18n.format(key.concat(".desc")).split("/n")){
-                tooltip.add(i);
+        if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) && I18n.hasKey(key.concat(".desc")))
+        {
+            for (String strline:I18n.format(key.concat(".desc")).split("\n"))
+            {
+                tooltip.add(strline);
             }
-        }else{
-            for (String i:I18n.format(key).split("/n")){
-                tooltip.add(i);
+        }
+        else if (I18n.hasKey(key))
+        {
+            for (String strline:I18n.format(key).split("\n"))
+            {
+                tooltip.add(strline);
             }
         }
     }
