@@ -4,5 +4,6 @@
     "gradle.disableConfirmations": true,
     "gradle.javaDebug.cleanOutput": true,
     "gradle.allowParallelRun": false,
-    "gradle.focusTaskInExplorer": true
+    "gradle.focusTaskInExplorer": true,
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
